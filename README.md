@@ -99,19 +99,23 @@ The primary focus of Phase II will be on:
 ## FlowChart:
 
 ### Performance Regression Testing Process
+![image](https://github.com/user-attachments/assets/19ad9da1-c2fa-4e76-99e2-70642061721d)
 This flowchart outlines the steps in the performance regression testing process, from conducting tests to storing results. It helps visualize how performance metrics are analyzed and reported.
 
-![Performance Regression Testing Process](path/to/image1.jpg)
+
 
 ### Overview of Performance Regression Analysis Approach
+![image](https://github.com/user-attachments/assets/d7ba7b42-be6b-4816-a108-b18740680a23)
+
 This flowchart breaks down the process of metric normalization, discretization, and report generation, helping track performance deviations and store results for future analysis.
 
-![Overview of Performance Regression Analysis Approach](path/to/image2.jpg)
+
 
 ### Performance Regression Testing Process
-This flowchart outlines the automated process of performance regression testing for the D compiler. It starts when a developer submits a pull request, triggering tests via GitHub Actions to evaluate performance metrics like compilation time, binary size, and memory consumption. Any regressions are flagged for review to ensure performance standards are maintained before merging.
+![image](https://github.com/user-attachments/assets/bb672eaf-15d3-4933-9cd2-64e22e00c99e)
 
-![Automated Performance Regression Testing Process](path/to/image3.jpg)
+
+This flowchart outlines the automated process of performance regression testing for the D compiler. It starts when a developer submits a pull request, triggering tests via GitHub Actions to evaluate performance metrics like compilation time, binary size, and memory consumption. Any regressions are flagged for review to ensure performance standards are maintained before merging.
 
 ### How it Helps:
 - **Automates Testing:** Reduces manual checks, ensuring consistent and reliable performance tracking.
