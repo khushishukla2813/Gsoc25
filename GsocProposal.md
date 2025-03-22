@@ -13,8 +13,8 @@ Performance Regression Publisher
 - **Name:** Khushi Shukla
 - **Email:** [khushi28132004@gmail.com](mailto:khushi28132004@gmail.com)
 - **GitHub:** [khushishukla2813](https://github.com/khushishukla2813) 
-- **LinkedIn:** [](https://www.linkedin.com/in/khushi1328/)
-- **Website:** [](https://khushishukla.vercel.app/)
+- **LinkedIn:** [Linkdin](https://www.linkedin.com/in/khushi1328/)
+- **Website:** [Portfolio](https://khushishukla.vercel.app/)
 - **Location:** India
 - **Timezone:** IST (UTC +5:30)
 
