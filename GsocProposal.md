@@ -57,24 +57,24 @@ As the D programming language continues to grow, maintaining high performance in
 ## Project Proposal
 
 ### Overview:
-This project will be carried out in two phases, each building on the progress of the previous one. The first phase will focus on the initial implementation of the bot to monitor basic performance metrics, while the second phase will expand the functionality to include more comprehensive tests and a web interface for displaying the results.
+This project involves building a performance monitoring bot for the D compiler, focused on providing valuable insights into its performance through automated testing. The goal is to improve the D compiler's efficiency by tracking key performance metrics and making this data accessible to developers.
 
 ### Phase I: Basic Bot Implementation
-In this phase, the primary task will be to set up the bot to monitor pull requests and collect initial performance metrics. The metrics will include:
-- Size of predefined binaries (e.g., a "Hello World" program).
-- Compilation time of popular projects.
-- Size of the compiler itself.
-- Runtime of the test suite.
-
-The bot will publish these results via GitHub Actions or a web interface, depending on the approach chosen during the initial planning. The goal of Phase I is to create a working bot that can reliably collect basic performance data from the D compiler.
+In this phase I will focus on setting up a bot to monitor pull requests and collect core performance metrics.
+Those metrics will include:
+-	Binary size for a basic "Hello World" program.
+-	Compilation time of popular D projects.
+-	Size of the D compiler itself.
+-	Test suite runtime to gauge overall performance.
+The bot will publish these results via GitHub Actions. The goal of Phase I is to create a working bot that can reliably collect basic performance data from the D compiler.
 
 ### Phase II: Advanced Metrics and Stress Testing
-In Phase II, the system will be enhanced with additional performance tests, such as stress tests for the compiler. More performance metrics will be collected, including memory usage and runtime analysis of larger projects. Additionally, the bot will be enhanced to store a history of performance data and present it via a web interface, making it easier for contributors to track performance trends over time.
+In this phase, the system will be enhanced with additional performance tests, such as stress tests for the compiler. More performance metrics will be collected, including memory usage and runtime analysis of larger projects. Additionally, the bot will be enhanced to store a history of performance data and present it via a web interface, making it easier for contributors to track performance trends over time.
 
-The primary focus of Phase II will be on:
-- Expanding the list of performance metrics.
-- Adding stress tests for better insight into the compiler’s performance under heavy load.
-- Building a web interface to display the results and historical performance data.
+-	Stress tests to evaluate the compiler’s behavior under heavy loads.
+-	Additional performance metrics like memory usage, runtime for large projects, and more comprehensive benchmarks.
+-	Historical performance data to help track trends over time.
+- Web interface to visualize results and make performance data more accessible.
 
 ### Technologies:
 - **GitHub Actions:** To automate performance tests and integrate with the existing D compiler workflow.
@@ -82,19 +82,46 @@ The primary focus of Phase II will be on:
 - **Python or Go:** To develop the bot that monitors pull requests and executes performance tests.
 - **Performance Testing Tools:** To measure and track various performance metrics, such as compile time, memory usage, and binary size.
 
-### Plan of Action:
 
-#### Phase I:
-- **Task 1:** Analyze the best way to publish results. This could be done through GitHub Actions or by sending data to a web interface. The choice will depend on the developer's preferences and the ease of implementation.
-- **Task 2:** Develop the bot to monitor pull requests and track the time spent running the testing pipeline.
-- **Task 3:** Implement basic performance tests, such as measuring compile time and binary size.
-- **Task 4:** Set up a system to report and store these results, either through a GitHub action or a web interface.
+##Apart from project:
+    ####Apart from given idea i would like to add some extra features:
 
-#### Phase II:
-- **Task 1:** Add stress tests to evaluate the compiler's performance under heavier loads.
-- **Task 2:** Collect additional performance metrics, such as memory usage and the runtime of larger projects.
-- **Task 3:** Build a web interface that presents historical performance data in an accessible way.
-- **Task 4:** Test the system on various real-world pull requests to ensure its effectiveness and reliability.
+- **Performance Budget System:**  
+   It would be a system that wpould define performance limits (like maximum compile time or memory usage). If a pull request exceeds these limits, the bot will flag it for review.
+  
+- **Local Testing Integration:**  
+   It will let contributors run basic performance tests on their computers before submitting pull requests, with instant feedback through pre-commit or pre-push hooks.
+
+- **Performance Comparison Across Compiler Versions:**  
+   It'd be a feature to compare performance between different versions of the D compiler (e.g., current vs. previous release) to track improvements or regressions.
+
+- **Cross-Platform:**  
+   would ensure the compiler’s performance on different operating systems (Linux, macOS, Windows) to ensure it works well everywhere.
+
+- **User friendly Enviroment:**
+    I will create an easy-to-use system for users to track and analyze compiler performance. Instead of just adjustments, users will gain insights into the factors affecting performance, with clear logs and metrics to       help them understand and improve efficiency.
+
+  ##Plan of Action for Extra enhancement:
+ 
+- **Performance Budget System:**  
+   - Define performance limits (compile time, memory, etc.) & set up the bot to flag these PRS.
+   - Integrate with GitHub Actions for automatic checks.
+
+- **Local Testing Integration:**  
+   - CLI tool or pre-commit hook for local performance testing with immediate feedback.
+   - pre-commit framework, performance testing libraries (e.g., time, psutil for Python).
+
+3. **Performance Comparison Across Compiler Versions:**  
+   - Build a benchmarking tool to compare performance across D compiler versions.
+   - Benchmarking tools, Sqlite or simple database to store data.
+
+4. **Cross-Platform Testing:**  
+   - Set up a cross-platform CI pipeline (Linux, macOS, Windows).
+   - 
+5. **User-Friendly Environment:**  
+   - Develop a web dashboard to visualize performance data (graphs, charts etc..).
+   - Provide detailed logs and explanations to help developers analyze performance trends and make optimizations.
+
 
 ## FlowChart:
 
