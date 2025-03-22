@@ -83,11 +83,17 @@ In this phase, the system will be enhanced with additional performance tests, su
 - **Performance Testing Tools:** To measure and track various performance metrics, such as compile time, memory usage, and binary size.
 
 
-##Apart from project:
-    ####Apart from given idea i would like to add some extra features:
+- ##Apart from project:
+   - ####Apart from given idea i would like to add some extra features:
 
-- **Performance Budget System:**  
-   It would be a system that wpould define performance limits (like maximum compile time or memory usage). If a pull request exceeds these limits, the bot will flag it for review.
+- **Compiler Parallelism and Concurrency Analysis:**
+   - I will add profiling for parallelism and concurrency during compilation, similar to **GCC**, to improve multi-threaded compilation performance and make better use of modern hardware.
+
+- **Build Caching and Optimization:**
+   - I will integrate a caching system, like **LLVM**'s **ccache**, to speed up compilation by caching intermediate results, reducing redundant work and wait times during development.
+
+- **Regression Alerts via Notifications:**
+   - I will set up automated **Slack**, email, or **GitHub** notifications for performance regressions in pull requests, allowing quick fixes before merging, similar to **LLVM** and **GCC** practices.
   
 - **Local Testing Integration:**  
    It will let contributors run basic performance tests on their computers before submitting pull requests, with instant feedback through pre-commit or pre-push hooks.
@@ -95,30 +101,29 @@ In this phase, the system will be enhanced with additional performance tests, su
 - **Performance Comparison Across Compiler Versions:**  
    It'd be a feature to compare performance between different versions of the D compiler (e.g., current vs. previous release) to track improvements or regressions.
 
-- **Cross-Platform:**  
-   would ensure the compiler’s performance on different operating systems (Linux, macOS, Windows) to ensure it works well everywhere.
-
 - **User friendly Enviroment:**
     I will create an easy-to-use system for users to track and analyze compiler performance. Instead of just adjustments, users will gain insights into the factors affecting performance, with clear logs and metrics to       help them understand and improve efficiency.
 
   ##Plan of Action for Extra enhancement:
- 
-- **Performance Budget System:**  
-   - Define performance limits (compile time, memory, etc.) & set up the bot to flag these PRS.
-   - Integrate with GitHub Actions for automatic checks.
+
+  - **Compiler Parallelism and Concurrency Analysis:**
+  - Profile multi-threaded operations in the compilation process and enhance parallelism for better performance (TBB).
+
+- **Build Caching and Optimization:**
+  - caching mechanisms like ccache to store intermediate build results, speeding up re-compilation.
+
+ -**Regression Alerts via Notifications:**
+- Set up automated notifications for performance regressions in PR via Slack, email, or GitHub notifications.
 
 - **Local Testing Integration:**  
    - CLI tool or pre-commit hook for local performance testing with immediate feedback.
    - pre-commit framework, performance testing libraries (e.g., time, psutil for Python).
 
-3. **Performance Comparison Across Compiler Versions:**  
+ **Performance Comparison Across Compiler Versions:**  
    - Build a benchmarking tool to compare performance across D compiler versions.
    - Benchmarking tools, Sqlite or simple database to store data.
-
-4. **Cross-Platform Testing:**  
-   - Set up a cross-platform CI pipeline (Linux, macOS, Windows).
-   - 
-5. **User-Friendly Environment:**  
+     
+ **User-Friendly Environment:**  
    - Develop a web dashboard to visualize performance data (graphs, charts etc..).
    - Provide detailed logs and explanations to help developers analyze performance trends and make optimizations.
 
