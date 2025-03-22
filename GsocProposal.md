@@ -25,11 +25,9 @@ Performance Regression Publisher
 - **Expected Graduation:** 2027
 
 ## Brief Bio
-I am Khushi Shukla, a second-year undergraduate student pursuing a degree in Computer Science Engineering at Dr. Hari Singh Gour Sagar University, India. I am passionate about enhancing software performance and contributing to open-source communities, with a focus on compilers, performance testing, and efficient coding practices.
+I am Khushi Shukla, a second-year Computer Science Engineering student at Dr. Hari Singh Gour Sagar University, India, with a passion for compilers and performance optimization. My internship experience with LLVM and MLIR sparked my interest in compiler work, where I focus on optimizing performance, addressing time complexity issues, and improving compiler efficiency.
 
-I have hands-on experience in languages like Python, C, C++, Golang, D, and JavaScript, and I am actively involved in improving the D programming language ecosystem. I believe in the importance of clean, maintainable code, especially when working on complex systems such as compilers, and I am eager to apply my skills to improve software performance and optimize workflows.
-
-Having contributed to various open-source projects, I am motivated by the impact of effective performance testing and optimization in real-world applications. I am excited to continue learning and contributing to the growth of the software development community.
+I’m also a developer, i develped bots for Telegram and WhatsApp, Apart from this I am proficient in Python, C, C++, Golang, D, and JavaScript, (MERN Stack), and I’m continuously learning new technologies to enhance my coding skills and contribute to real-world software solutions.
 
 ## Pull Requests
 
