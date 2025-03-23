@@ -110,7 +110,8 @@ Build a user-friendly web dashboard using React and D3.js to display performance
 
 ### Current Implementation:
 - **PerformanceBot Script:** A custom script that tracks essential performance metrics (such as compile time, binary size, and test suite runtime). This script automates the process of collecting performance data, runs predefined benchmarks, and display result on Dashboard.
-![PerformanceBot in Action](src/Screenecording2025-03-23215643.mp4)
+![PerformanceBot in Action](https://raw.githubusercontent.com/username/repository/branch/src/Screen%20Recording%202025-03-23%20215643.mp4)
+
 
 
 - **Manual Performance Testing:** Performance testing was done manually by running test files and scripts to measure compile time, binary size, and other relevant metrics. The results were then compared to baseline data to assess any regressions or improvements in performance.
