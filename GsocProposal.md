@@ -47,84 +47,94 @@ I’ve gained a deeper understanding of the D ecosystem and its challenges. As I
 
 ## Project Description
 
-### Abstract:
-The D programming language currently lacks an automated performance regression testing system. When pull requests are made claiming improvements in compiler performance, there is often no easy way to validate whether the changes are genuinely beneficial. To address this, the goal of this project is to create an automated bot that monitors pull requests to the D compiler, analyzing its performance with and without the proposed changes. This bot will collect a variety of performance metrics, such as compile time, binary size, compiler size, and runtime of the test suite, providing reliable and transparent data for developers. Additionally, the system will maintain a history of performance metrics to help track regressions over time. This will greatly simplify the process of verifying performance improvements and ensure better quality control of the D compiler.
+## Abstract:
+The D programming language lacks an automated performance regression testing system, making it difficult to verify compiler performance improvements. This project aims to create a bot that automates the monitoring of pull requests, collecting key performance metrics such as compile time, binary size, test suite runtime, and compiler size. It will also track regressions over time, providing transparent data for developers and ensuring performance integrity across changes.
 
-### Background:
-As the D programming language continues to grow, maintaining high performance in its compiler is critical. However, verifying performance improvements in the absence of automated tools is challenging. Developers often submit pull requests claiming performance improvements, but it’s left to the reviewer to either take the claim at face value or manually test it. A system that automatically tracks and analyzes the performance of the compiler with and without the changes introduced in pull requests will save time and increase confidence in the integrity of the compiler’s performance. The idea behind this project is to implement a bot that continuously monitors performance regression, making it easier to validate performance improvements and detect regressions before they become a problem.
+## Background:
+As the D compiler evolves, performance verification becomes crucial. Currently, pull requests claiming performance improvements are subject to manual verification, which is time-consuming and error-prone. By automating the process of performance tracking and regression testing, this project will streamline performance validation and help maintain high-quality standards for the D compiler.
 
 ## Project Proposal
 
 ### Overview:
-This project involves building a performance monitoring bot for the D compiler, focused on providing valuable insights into its performance through automated testing. The goal is to improve the D compiler's efficiency by tracking key performance metrics and making this data accessible to developers.
+This project aims to build a performance monitoring bot for the D compiler to provide insights into performance changes through automated testing. The bot will collect performance metrics and publish the results via GitHub Actions, making them easily accessible to contributors.
 
 ### Phase I: Basic Bot Implementation
-In this phase I will focus on setting up a bot to monitor pull requests and collect core performance metrics.
-Those metrics will include:
--	Binary size for a basic "Hello World" program.
--	Compilation time of popular D projects.
--	Size of the D compiler itself.
--	Test suite runtime to gauge overall performance.
-The bot will publish these results via GitHub Actions. The goal of Phase I is to create a working bot that can reliably collect basic performance data from the D compiler.
+  - Binary size for a basic "Hello World" program.
+  - Compilation time of popular D projects.
+  - Size of the D compiler itself.
+  - Test suite runtime.
+- **Objective:** Implement a bot that tracks basic performance metrics, publishes results on GitHub, and enables transparency in performance analysis.
 
 ### Phase II: Advanced Metrics and Stress Testing
-In this phase, the system will be enhanced with additional performance tests, such as stress tests for the compiler. More performance metrics will be collected, including memory usage and runtime analysis of larger projects. Additionally, the bot will be enhanced to store a history of performance data and present it via a web interface, making it easier for contributors to track performance trends over time.
+- **Enhanced Testing:**
+  - **Stress Tests:** Evaluate the compiler’s performance under heavy loads and large codebases.
+  - **Advanced Metrics:** Memory usage, CPU load, disk I/O, page faults, and context switches during compilation.
+  - **Historical Data:** Track trends and provide performance comparisons across D compiler versions.
+- **Web Interface:** Develop a dashboard to visualize performance data, display trends, and offer insights.
 
--	Stress tests to evaluate the compiler’s behavior under heavy loads.
--	Additional performance metrics like memory usage, runtime for large projects, and more comprehensive benchmarks.
--	Historical performance data to help track trends over time.
-- Web interface to visualize results and make performance data more accessible.
+# Enhancements for D Compiler Performance Monitoring
 
-### Technologies:
-- **GitHub Actions:** To automate performance tests and integrate with the existing D compiler workflow.
-- **Web Development (HTML, CSS, JavaScript):** For developing a web interface to display performance data.
-- **Python or Go:** To develop the bot that monitors pull requests and executes performance tests.
-- **Performance Testing Tools:** To measure and track various performance metrics, such as compile time, memory usage, and binary size.
+## Real-time Performance Monitoring (Dashboard)
+Implement a real-time dashboard to track compile time, binary size, and test suite runtime for each PR using D’s profiling flags and API integration for updates.
 
+## Granular Performance Analysis
+Break down compile time into stages like preprocessing, parsing, and optimization by adding custom profiling hooks at key points in D's compilation pipeline.
 
-- ##Apart from project:
-   - ####Apart from given idea i would like to add some extra features:
+## Advanced Stress Tests
+Stress test the compiler with multi-threading using D’s parallelism support, and use tools like `valgrind` or `perf` for CPU/memory profiling during compilation.
 
-- **Compiler Parallelism and Concurrency Analysis:**
-   - I will add profiling for parallelism and concurrency during compilation, similar to **GCC**, to improve multi-threaded compilation performance and make better use of modern hardware.
+## Automated Regression Detection
+Use delta analysis to compare new performance data against a baseline and trigger alerts if performance degradation exceeds set thresholds.
 
-- **Build Caching and Optimization:**
-   - I will integrate a caching system, like **LLVM**'s **ccache**, to speed up compilation by caching intermediate results, reducing redundant work and wait times during development.
+## GitHub Integration for Notifications
+Automate GitHub comments on PRs, notifying maintainers of significant performance regressions based on compile time or binary size changes.
 
-- **Regression Alerts via Notifications:**
-   - I will set up automated **Slack**, email, or **GitHub** notifications for performance regressions in pull requests, allowing quick fixes before merging, similar to **LLVM** and **GCC** practices.
+## Historical Data Tracking and Trend Analysis
+Track performance trends over time by storing metrics in a time-series database and visualizing them to compare compiler versions.
+
+## Testing Various Compiler Configurations
+Measure performance across different compiler configurations like optimization levels, debugging flags, and link-time optimizations, automating tests in a CI pipeline.
+
+## Performance Threshold Alerts
+Set up performance threshold alerts to flag PRs with regressions by defining sensible limits based on historical performance data.
+
+## Scalability and Parallelism
+Design the bot to scale efficiently, managing multiple concurrent PRs and large codebases by utilizing cloud infrastructure for parallel processing.
+
+## User-friendly Environment (Dashboard)
+Build a user-friendly web dashboard using React and D3.js to display performance data in clear, interactive graphs and tables for easy analysis.
+
+### Additional Enhancements:
+- **Benchmarking:** Integrate benchmarking tools to compare performance across different versions of the compiler.
+- **Customizable Testing:** Allow users to configure which tests to run based on their needs.
+- **Phobos Integration:** Test Phobos library performance as part of the overall benchmarking process.
+
+### Current Implementation:
+- **PerformanceBot:** A custom script that monitors pull requests (PRs) and tracks essential performance metrics (such as compile time, binary size, and test suite runtime). This script automates the process of collecting performance data for each PR, runs the predefined benchmarks, and posts the results as comments on the PR.
   
-- **Local Testing Integration:**  
-   It will let contributors run basic performance tests on their computers before submitting pull requests, with instant feedback through pre-commit or pre-push hooks.
+- **Custom Script for Automation:** Instead of using GitHub Actions, I developed a custom script to automate the performance data collection and reporting process for each PR. This script runs performance benchmarks, compares results to baseline data, and automatically posts a comment on the PR with performance insights and alerts for any regressions.
 
-- **Performance Comparison Across Compiler Versions:**  
-   It'd be a feature to compare performance between different versions of the D compiler (e.g., current vs. previous release) to track improvements or regressions.
+### Current Implementation:
+- **PerformanceBot Script:** A custom script that tracks essential performance metrics (such as compile time, binary size, and test suite runtime). This script automates the process of collecting performance data, runs predefined benchmarks, and display result on Dashboard.
 
-- **User friendly Enviroment:**
-    I will create an easy-to-use system for users to track and analyze compiler performance. Instead of just adjustments, users will gain insights into the factors affecting performance, with clear logs and metrics to       help them understand and improve efficiency.
+  ![PerformanceBot in Action](path/to/your/video.mp4)
 
-  ##Plan of Action for Extra enhancement:
+- **Manual Performance Testing:** Performance testing was done manually by running test files and scripts to measure compile time, binary size, and other relevant metrics. The results were then compared to baseline data to assess any regressions or improvements in performance.
 
-  - **Compiler Parallelism and Concurrency Analysis:**
-  - Profile multi-threaded operations in the compilation process and enhance parallelism for better performance (TBB).
+| Test File                          | Compile Time (Before) | Compile Time (After) | Binary Size (Before) | Binary Size (After) |
+|------------------------------------|-----------------------|----------------------|----------------------|---------------------|
+| `hello.d` (No optimization)        | 0.425s                | 0.430s               | 1.3MB                | 1.3MB               |
+| `hello.d` (With optimization)      | 0.496s                | 0.496s               | 1.3MB                | 1.3MB               |
+| `hello.d` (With LTO optimization)  | 0.460s                | 0.460s               | 1.3MB                | 1.3MB               |
+| `hello.d` (Parallel Build)         | 0.442s                | 0.442s               | 1.3MB                | 1.3MB               |
+| `stress_test.d`                    | 0.547s                | 0.547s               | 1.3MB                | 1.3MB               |
+| `large.d`                          | 0.417s                | 0.417s               | 1.3MB                | 1.3MB               |
+| `multi-file test (3 files)`        | 0.004s                | 0.004s               | 1.3MB                | 1.3MB               |
 
-- **Build Caching and Optimization:**
-  - caching mechanisms like ccache to store intermediate build results, speeding up re-compilation.
 
- -**Regression Alerts via Notifications:**
-- Set up automated notifications for performance regressions in PR via Slack, email, or GitHub notifications.
+- **Custom Script for Automation:** I developed a custom script to automate the performance data collection and reporting. This script runs performance benchmarks, compares results to baseline data, and automatically posts a comment on the PR with performance insights and alerts for any regressions.
 
-- **Local Testing Integration:**  
-   - CLI tool or pre-commit hook for local performance testing with immediate feedback.
-   - pre-commit framework, performance testing libraries (e.g., time, psutil for Python).
-
- **Performance Comparison Across Compiler Versions:**  
-   - Build a benchmarking tool to compare performance across D compiler versions.
-   - Benchmarking tools, Sqlite or simple database to store data.
-     
- **User-Friendly Environment:**  
-   - Develop a web dashboard to visualize performance data (graphs, charts etc..).
-   - Provide detailed logs and explanations to help developers analyze performance trends and make optimizations.
+  ![Custom Script Automation](image-link-here)
 
 
 ## FlowChart:
