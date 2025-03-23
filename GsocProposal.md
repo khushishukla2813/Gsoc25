@@ -15,6 +15,7 @@ Performance Regression Publisher
 - **GitHub:** [khushishukla2813](https://github.com/khushishukla2813) 
 - **LinkedIn:** [Linkdin](https://www.linkedin.com/in/khushi1328/)
 - **Website:** [Portfolio](https://khushishukla.vercel.app/)
+- **Resume:**  [Resume](https://drive.google.com/file/d/1JxANhnL3-PjL-yofmSgqPtxvS3tYalip/view?usp=sharing)
 - **Location:** India
 - **Timezone:** IST (UTC +5:30)
 
