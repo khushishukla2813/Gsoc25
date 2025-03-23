@@ -72,52 +72,46 @@ This project aims to build a performance monitoring bot for the D compiler to pr
   - **Historical Data:** Track trends and provide performance comparisons across D compiler versions.
 - **Web Interface:** Develop a dashboard to visualize performance data, display trends, and offer insights.
 
-# Enhancements for D Compiler Performance Monitoring
+## Enhancements for D Compiler Performance Monitoring
 
-## Real-time Performance Monitoring (Dashboard)
+#### Real-time Performance Monitoring (Dashboard)
 Implement a real-time dashboard to track compile time, binary size, and test suite runtime for each PR using D’s profiling flags and API integration for updates.
 
-## Granular Performance Analysis
+#### Granular Performance Analysis
 Break down compile time into stages like preprocessing, parsing, and optimization by adding custom profiling hooks at key points in D's compilation pipeline.
 
-## Advanced Stress Tests
+#### Advanced Stress Tests
 Stress test the compiler with multi-threading using D’s parallelism support, and use tools like `valgrind` or `perf` for CPU/memory profiling during compilation.
 
-## Automated Regression Detection
+#### Automated Regression Detection
 Use delta analysis to compare new performance data against a baseline and trigger alerts if performance degradation exceeds set thresholds.
 
-## GitHub Integration for Notifications
+#### GitHub Integration for Notifications
 Automate GitHub comments on PRs, notifying maintainers of significant performance regressions based on compile time or binary size changes.
 
-## Historical Data Tracking and Trend Analysis
+#### Historical Data Tracking and Trend Analysis
 Track performance trends over time by storing metrics in a time-series database and visualizing them to compare compiler versions.
 
-## Testing Various Compiler Configurations
+#### Testing Various Compiler Configurations
 Measure performance across different compiler configurations like optimization levels, debugging flags, and link-time optimizations, automating tests in a CI pipeline.
 
-## Performance Threshold Alerts
+#### Performance Threshold Alerts
 Set up performance threshold alerts to flag PRs with regressions by defining sensible limits based on historical performance data.
 
-## Scalability and Parallelism
+#### Scalability and Parallelism
 Design the bot to scale efficiently, managing multiple concurrent PRs and large codebases by utilizing cloud infrastructure for parallel processing.
 
-## User-friendly Environment (Dashboard)
+#### User-friendly Environment (Dashboard)
 Build a user-friendly web dashboard using React and D3.js to display performance data in clear, interactive graphs and tables for easy analysis.
 
 ### Additional Enhancements:
 - **Benchmarking:** Integrate benchmarking tools to compare performance across different versions of the compiler.
-- **Customizable Testing:** Allow users to configure which tests to run based on their needs.
 - **Phobos Integration:** Test Phobos library performance as part of the overall benchmarking process.
 
 ### Current Implementation:
-- **PerformanceBot:** A custom script that monitors pull requests (PRs) and tracks essential performance metrics (such as compile time, binary size, and test suite runtime). This script automates the process of collecting performance data for each PR, runs the predefined benchmarks, and posts the results as comments on the PR.
-  
-- **Custom Script for Automation:** Instead of using GitHub Actions, I developed a custom script to automate the performance data collection and reporting process for each PR. This script runs performance benchmarks, compares results to baseline data, and automatically posts a comment on the PR with performance insights and alerts for any regressions.
-
-### Current Implementation:
 - **PerformanceBot Script:** A custom script that tracks essential performance metrics (such as compile time, binary size, and test suite runtime). This script automates the process of collecting performance data, runs predefined benchmarks, and display result on Dashboard.
+![PerformanceBot in Action](src/Screen%20Recording%202025-03-23%20215643.mp4)
 
-  ![PerformanceBot in Action](path/to/your/video.mp4)
 
 - **Manual Performance Testing:** Performance testing was done manually by running test files and scripts to measure compile time, binary size, and other relevant metrics. The results were then compared to baseline data to assess any regressions or improvements in performance.
 
@@ -134,7 +128,7 @@ Build a user-friendly web dashboard using React and D3.js to display performance
 
 - **Custom Script for Automation:** I developed a custom script to automate the performance data collection and reporting. This script runs performance benchmarks, compares results to baseline data, and automatically posts a comment on the PR with performance insights and alerts for any regressions.
 
-  ![Custom Script Automation](image-link-here)
+   ![Custom Script Automation](src/Screenshot%202025-03-23%20223105.png)
 
 
 ## FlowChart:
@@ -199,3 +193,10 @@ The timeline is an approximate outline, and I will adapt it as needed during the
 ## Post GSoC Plans
 
 I am committed to the long-term success of the Performance Regression Publisher project. While the main focus of this proposal is to automate performance testing for D compiler pull requests, I see opportunities to enhance the user experience. If time allows, I would explore enabling users to receive real-time performance alerts directly in their pull requests and developing a visual dashboard for easier trend analysis. This would further streamline the workflow and provide deeper insights into performance regressions.
+
+- **Internship Project**: [IITH-Compilers/ml-llvm-project](https://github.com/IITH-Compilers/ml-llvm-project)
+  - This is where I did my internship, focusing on compilers, ML compilers, and optimizations for ML codes using LLVM and MLIR.
+
+- **Compiler Development**: [khushishukla2813/Compiler_](https://github.com/khushishukla2813/Compiler_)
+  - This is the repository where I developed a multithreaded C compiler as part of my project work.
+
